@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 with AI Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>2048 with AI Assistant</h1>
+            <div class="game-info">
+                <div class="info-item">
+                    <span class="label">Target:</span>
+                    <span id="target-tile">2048</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Board:</span>
+                    <span id="board-size">4×4</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Game Setup Modal -->
+            <div id="setup-modal" class="modal">
+                <div class="modal-content">
+                    <h2>Game Setup</h2>
+                    <div class="setup-form">
+                        <div class="form-group">
+                            <label for="height">Height:</label>
+                            <input type="number" id="height" min="2" max="10" value="4">
+                        </div>
+                        <div class="form-group">
+                            <label for="width">Width:</label>
+                            <input type="number" id="width" min="2" max="10" value="4">
+                        </div>
+                        <div class="form-group">
+                            <label for="win-tile">Win Tile:</label>
+                            <select id="win-tile">
+                                <option value="64">64</option>
+                                <option value="128">128</option>
+                                <option value="256">256</option>
+                                <option value="512">512</option>
+                                <option value="1024">1024</option>
+                                <option value="2048" selected>2048</option>
+                                <option value="4096">4096</option>
+                                <option value="8192">8192</option>
+                            </select>
+                        </div>
+                        <button id="start-game-btn" class="btn btn-primary">Start Game</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Over Modal -->
+            <div id="game-over-modal" class="modal hidden">
+                <div class="modal-content">
+                    <h2 id="game-over-title"></h2>
+                    <p id="game-over-message"></p>
+                    <div class="modal-buttons">
+                        <button id="undo-btn" class="btn btn-secondary">Undo Last Move</button>
+                        <button id="restart-btn" class="btn btn-primary">Restart Game</button>
+                        <button id="new-game-btn" class="btn btn-primary">New Game</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Board -->
+            <div class="game-container">
+                <div id="game-board" class="board hidden"></div>
+
+                <!-- Controls -->
+                <div class="controls hidden" id="game-controls">
+                    <div class="control-section">
+                        <h3>Your Move</h3>
+                        <div class="move-buttons">
+                            <button class="move-btn" data-direction="Up">↑</button>
+                            <div class="move-row">
+                                <button class="move-btn" data-direction="Left">←</button>
+                                <button class="move-btn" data-direction="Down">↓</button>
+                                <button class="move-btn" data-direction="Right">→</button>
+                            </div>
+                        </div>
+                        <p class="keyboard-hint">Use WASD or arrow keys</p>
+                    </div>
+
+                    <div class="control-section">
+                        <h3>AI Assistant</h3>
+                        <button id="ai-move-btn" class="btn btn-ai">Let AI Make Move</button>
+                        <div id="ai-thinking" class="ai-status hidden">
+                            <div class="spinner"></div>
+                            <span>AI is thinking...</span>
+                        </div>
+                    </div>
+
+                    <div class="control-section">
+                        <h3>Game Actions</h3>
+                        <div class="action-buttons">
+                            <button id="undo-game-btn" class="btn btn-secondary">Undo</button>
+                            <button id="restart-game-btn" class="btn btn-secondary">Restart</button>
+                            <button id="new-game-setup-btn" class="btn btn-secondary">New Game</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Status Messages -->
+        <div id="status-message" class="status-message hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
