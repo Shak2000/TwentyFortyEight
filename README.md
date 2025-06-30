@@ -2,8 +2,6 @@
 
 A modern web-based implementation of the classic 2048 puzzle game with an intelligent AI assistant to help you make optimal moves. The game features a sleek, responsive UI and a FastAPI backend with sophisticated Monte Carlo simulation-based AI.
 
-![2048 Game Screenshot](https://i.imgur.com/placeholder.png)
-
 ## 🎮 Features
 
 ### Game Features
